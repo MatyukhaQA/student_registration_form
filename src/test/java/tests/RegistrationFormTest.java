@@ -52,8 +52,7 @@ public class RegistrationFormTest {
                 text("Reading"),
                 text("pic.jpg"),
                 text("New Delhi"),
-                text("NCR Delhi"),
-                text("Alex"));
+                text("NCR Delhi"));
 
 
     }
