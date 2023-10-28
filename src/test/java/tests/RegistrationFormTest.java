@@ -6,8 +6,6 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 
-import java.io.File;
-
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
 
@@ -20,8 +18,10 @@ public class RegistrationFormTest {
     }
 
     @Test
-    void FormTest() {
+    void formTest() {
         open("/automation-practice-form");
+        executeJavaScript("$('#fixedban').remove()");
+        executeJavaScript("$('footer').remove()");
         $("#firstName").setValue("Alex");
         $("#lastName").setValue("Ivanov");
         $("#userEmail").setValue("Alexivanov@gmail.ru");
@@ -33,7 +33,7 @@ public class RegistrationFormTest {
         $("[aria-label = 'Choose Thursday, March 8th, 1990']").click();
         $("#subjectsInput").setValue("Chemistry").pressEnter();
         $("label[for='hobbies-checkbox-2']").click();
-        $("#uploadPicture").uploadFile(new File("src/test/resources/pic.jpg"));
+        $("#uploadPicture").uploadFromClasspath("pic.jpg");
         $("#currentAddress").setValue("New Delhi");
         $("#state").click();
         $("#state input").setValue("NCR").pressEnter();
@@ -53,8 +53,5 @@ public class RegistrationFormTest {
                 text("pic.jpg"),
                 text("New Delhi"),
                 text("NCR Delhi"));
-
-
     }
-
 }
