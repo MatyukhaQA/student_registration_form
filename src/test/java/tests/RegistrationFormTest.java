@@ -56,17 +56,6 @@ public class RegistrationFormTest {
                 text("Alex"));
 
 
-
-
-
-
-
-//        $("").setValue("");
-
-
-
     }
-
-
 
 }
