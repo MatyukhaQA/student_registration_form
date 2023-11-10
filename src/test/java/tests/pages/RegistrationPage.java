@@ -1,8 +1,8 @@
-package pages;
+package tests.pages;
 
 import com.codeborne.selenide.SelenideElement;
-import pages.components.DataPicker;
-import pages.components.TableResults;
+import tests.pages.components.DataPicker;
+import tests.pages.components.TableResults;
 
 import static com.codeborne.selenide.Condition.cssValue;
 import static com.codeborne.selenide.Condition.text;

@@ -1,7 +1,7 @@
 package tests;
 
 import org.junit.jupiter.api.Test;
-import pages.RegistrationPage;
+import tests.pages.RegistrationPage;
 
 public class RegistrationFormTest extends TestBase{
     RegistrationPage RegistrationPage = new RegistrationPage();
