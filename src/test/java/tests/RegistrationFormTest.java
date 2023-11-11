@@ -1,55 +1,60 @@
 package tests;
 
 import org.junit.jupiter.api.Test;
+import tests.data.TestData;
 import tests.pages.RegistrationPage;
 
 public class RegistrationFormTest extends TestBase{
     RegistrationPage RegistrationPage = new RegistrationPage();
+    TestData testData = new TestData();
+
     @Test
     void formTest() {
         RegistrationPage.openPage()
                 .removeBanners()
-                .setFirstName("Maria")
-                .setLastName("Ivanova")
-                .setEmail("ivanova@gmail.ru")
-                .setGender("Female")
-                .setUserNumber("9998887766")
-                .setDateOfBirth("8", "March", "1990")
-                .setSubjects("Chemistry")
-                .setHobbies("Reading")
-                .selectPicture("pic.jpg")
-                .setCurrentAddress("New Delhi")
-                .setState("NCR")
-                .setCity("Delhi")
+                .setFirstName(testData.firstName)
+                .setLastName(testData.lastName)
+                .setEmail(testData.userEmail)
+                .setGender(testData.gender)
+                .setUserNumber(testData.userNumber)
+                .setDateOfBirth(testData.day, testData.month, testData.year)
+                .setSubjects(testData.subjects)
+                .setHobbies(testData.hobbies)
+                .selectPicture(testData.picture)
+                .setCurrentAddress(testData.streetAddress)
+                .setState(testData.state)
+                .setCity(testData.city)
                 .pressSubmit();
-        RegistrationPage.checkTitle("Thanks for submitting the form")
-                .checkResult("Student Name", "Maria Ivanova")
-                .checkResult("Student Email", "ivanova@gmail.ru")
-                .checkResult("Gender", "Female")
-                .checkResult("Mobile", "9998887766")
-                .checkResult("Date of Birth", "08 March,1990")
-                .checkResult("Subjects", "Chemistry")
-                .checkResult("Hobbies", "Reading")
-                .checkResult("Picture", "pic.jpg")
-                .checkResult("Address", "New Delhi")
-                .checkResult("State and City", "NCR Delhi");
+        RegistrationPage.checkTitle(testData.successTitle)
+                .checkResult("Student Name", testData.firstName)
+                .checkResult("Student Name", testData.lastName)
+                .checkResult("Student Email", testData.userEmail)
+                .checkResult("Gender", testData.gender)
+                .checkResult("Mobile", testData.userNumber)
+                .checkResult("Date of Birth", testData.day + " " + testData.month + "," + testData.year)
+                .checkResult("Subjects", testData.subjects)
+                .checkResult("Hobbies", testData.hobbies)
+                .checkResult("Picture", testData.picture)
+                .checkResult("Address", testData.streetAddress)
+                .checkResult("State and City", testData.state)
+                .checkResult("State and City", testData.city);
     }
 
     @Test
     void minimalFormFilling() {
        RegistrationPage.openPage()
                 .removeBanners()
-                .setFirstName("Maria")
-                .setLastName("Ivanova")
-                .setEmail("ivanova@gmail.ru")
-                .setGender("Female")
-                .setUserNumber("9998887766")
+                .setFirstName(testData.firstName)
+                .setLastName(testData.lastName)
+                .setEmail(testData.userEmail)
+                .setGender(testData.gender)
+                .setUserNumber(testData.userNumber)
                 .pressSubmit();
-        RegistrationPage.checkTitle("Thanks for submitting the form")
-                .checkResult("Student Name", "Maria Ivanova")
-                .checkResult("Student Email", "ivanova@gmail.ru")
-                .checkResult("Gender", "Female")
-                .checkResult("Mobile", "9998887766");
+        RegistrationPage.checkTitle(testData.successTitle)
+                .checkResult("Student Name", testData.lastName)
+                .checkResult("Student Email", testData.userEmail)
+                .checkResult("Gender", testData.gender)
+                .checkResult("Mobile", testData.userNumber);
     }
 
     @Test
@@ -57,6 +62,6 @@ public class RegistrationFormTest extends TestBase{
         RegistrationPage.openPage()
                 .removeBanners()
                 .pressSubmit();
-        RegistrationPage.checkBorderColors("border-color","rgb(220, 53, 69)");
+        RegistrationPage.checkBorderColors(testData.borderColor, testData.color);
     }
 }
