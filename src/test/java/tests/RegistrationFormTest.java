@@ -5,12 +5,12 @@ import tests.data.TestData;
 import tests.pages.RegistrationPage;
 
 public class RegistrationFormTest extends TestBase{
-    RegistrationPage RegistrationPage = new RegistrationPage();
+    RegistrationPage registrationPage = new RegistrationPage();
     TestData testData = new TestData();
 
     @Test
     void formTest() {
-        RegistrationPage.openPage()
+        registrationPage.openPage()
                 .removeBanners()
                 .setFirstName(testData.firstName)
                 .setLastName(testData.lastName)
@@ -25,7 +25,7 @@ public class RegistrationFormTest extends TestBase{
                 .setState(testData.state)
                 .setCity(testData.city)
                 .pressSubmit();
-        RegistrationPage.checkTitle(testData.successTitle)
+        registrationPage.checkTitle(testData.successTitle)
                 .checkResult("Student Name", testData.firstName)
                 .checkResult("Student Name", testData.lastName)
                 .checkResult("Student Email", testData.userEmail)
@@ -42,7 +42,7 @@ public class RegistrationFormTest extends TestBase{
 
     @Test
     void minimalFormFilling() {
-       RegistrationPage.openPage()
+       registrationPage.openPage()
                 .removeBanners()
                 .setFirstName(testData.firstName)
                 .setLastName(testData.lastName)
@@ -50,7 +50,7 @@ public class RegistrationFormTest extends TestBase{
                 .setGender(testData.gender)
                 .setUserNumber(testData.userNumber)
                 .pressSubmit();
-        RegistrationPage.checkTitle(testData.successTitle)
+        registrationPage.checkTitle(testData.successTitle)
                 .checkResult("Student Name", testData.lastName)
                 .checkResult("Student Email", testData.userEmail)
                 .checkResult("Gender", testData.gender)
@@ -59,9 +59,9 @@ public class RegistrationFormTest extends TestBase{
 
     @Test
     void incorrectFormFilling() {
-        RegistrationPage.openPage()
+        registrationPage.openPage()
                 .removeBanners()
                 .pressSubmit();
-        RegistrationPage.checkBorderColors(testData.borderColor, testData.color);
+        registrationPage.checkBorderColors(testData.borderColor, testData.color);
     }
 }
