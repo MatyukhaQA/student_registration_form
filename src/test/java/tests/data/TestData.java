@@ -23,8 +23,8 @@ public class TestData {
             state = faker.options().option("NCR", "Uttar Pradesh", "Haryana", "Rajasthan"),
             city = setCity(state),
             successTitle = "Thanks for submitting the form",
-            borderColor = "rgb(220, 53, 69)",
-            color = "border-color";
+            color = "rgb(220, 53, 69)",
+            borderColor = "border-color";
 
     public String setCity(String state) {
         switch (state) {
