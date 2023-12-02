@@ -30,112 +30,112 @@ public class RegistrationPage {
     DataPicker dataPicker = new DataPicker();
     TableResults tableResults = new TableResults();
 
-    @Step("Открываем страницу с формой")
+    @Step("РћС‚РєСЂС‹РІР°РµРј СЃС‚СЂР°РЅРёС†Сѓ СЃ С„РѕСЂРјРѕР№")
     public RegistrationPage openPage() {
         open("/automation-practice-form");
         return this;
     }
 
-    @Step("Удаляем баннеры")
+    @Step("РЈРґР°Р»СЏРµРј Р±Р°РЅРЅРµСЂС‹")
     public RegistrationPage removeBanners() {
         executeJavaScript("$('#fixedban').remove()");
         executeJavaScript("$('footer').remove()");
         return this;
     }
 
-    @Step("Вводим имя")
+    @Step("Р’РІРѕРґРёРј РёРјСЏ")
     public RegistrationPage setFirstName(String value) {
         firstNameInput.setValue(value);
         return this;
     }
 
-    @Step("Вводим фамилию")
+    @Step("Р’РІРѕРґРёРј С„Р°РјРёР»РёСЋ")
     public RegistrationPage setLastName(String value) {
         lastNameInput.setValue(value);
         return this;
     }
 
-    @Step("Вводим email")
+    @Step("Р’РІРѕРґРёРј email")
     public RegistrationPage setEmail(String value) {
         userEmailInput.setValue(value);
         return this;
     }
 
-    @Step("Выбираем пол")
+    @Step("Р’С‹Р±РёСЂР°РµРј РїРѕР»")
     public RegistrationPage setGender(String value) {
         genderWrapper.$(byText(value)).click();
         return this;
     }
 
-    @Step("Вводим телефон")
+    @Step("Р’РІРѕРґРёРј С‚РµР»РµС„РѕРЅ")
     public RegistrationPage setUserNumber(String value) {
         userNumberInput.setValue(value);
         return this;
     }
 
-    @Step("Выбираем дату рождения")
+    @Step("Р’С‹Р±РёСЂР°РµРј РґР°С‚Сѓ СЂРѕР¶РґРµРЅРёСЏ")
     public RegistrationPage setDateOfBirth(String day, String month, String year) {
         calendarInput.click();
         dataPicker.setDate(day, month, year);
         return this;
     }
 
-    @Step("Выбираем названия предметов")
+    @Step("Р’С‹Р±РёСЂР°РµРј РЅР°Р·РІР°РЅРёСЏ РїСЂРµРґРјРµС‚РѕРІ")
     public RegistrationPage setSubjects(String value) {
         subjects.setValue(value).pressEnter();
         return this;
     }
 
-    @Step("Выбираем хобби")
+    @Step("Р’С‹Р±РёСЂР°РµРј С…РѕР±Р±Рё")
     public RegistrationPage setHobbies(String value) {
         hobbiesWrapper.$(byText(value)).click();
         return this;
     }
 
-    @Step("Загружаем картинку")
+    @Step("Р—Р°РіСЂСѓР¶Р°РµРј РєР°СЂС‚РёРЅРєСѓ")
     public RegistrationPage selectPicture(String value) {
         uploadPicture.uploadFromClasspath(value);
         return this;
     }
 
-    @Step("Вводим адрес")
+    @Step("Р’РІРѕРґРёРј Р°РґСЂРµСЃ")
     public RegistrationPage setCurrentAddress(String value) {
         inputCurrentAddress.setValue(value);
         return this;
     }
 
-    @Step("Выбираем штат")
+    @Step("Р’С‹Р±РёСЂР°РµРј С€С‚Р°С‚")
     public RegistrationPage setState(String value) {
         state.click();
         state.$(byText(value)).click();
         return this;
     }
 
-    @Step("Выбираем город")
+    @Step("Р’С‹Р±РёСЂР°РµРј РіРѕСЂРѕРґ")
     public RegistrationPage setCity(String value) {
         city.click();
         city.$(byText(value)).click();
         return this;
     }
 
-    @Step("Кликаем по кнопке submit")
+    @Step("РљР»РёРєР°РµРј РїРѕ РєРЅРѕРїРєРµ submit")
     public void pressSubmit() {
         submitButton.click();
     }
 
-    @Step("Проверяем Title")
+    @Step("РџСЂРѕРІРµСЂСЏРµРј Title")
     public RegistrationPage checkTitle(String value) {
         title.shouldHave(text(value));
         return this;
     }
 
-    @Step("Проверяем заполненную форму")
+    @Step("РџСЂРѕРІРµСЂСЏРµРј Р·Р°РїРѕР»РЅРµРЅРЅСѓСЋ С„РѕСЂРјСѓ")
     public RegistrationPage checkResult(String key, String value) {
         tableResults.tableResults(key, value);
         return this;
     }
 
-    @Step("Проверяем валидацию при незаполненной форме")
+    @Step("РџСЂРѕРІРµСЂСЏРµРј РІР°Р»РёРґР°С†РёСЋ РїСЂРё РЅРµР·Р°РїРѕР»РЅРµРЅРЅРѕР№ С„РѕСЂРјРµ")
     public void checkBorderColors(String key, String value) {
         firstNameInput.shouldHave(cssValue(key, value));
         lastNameInput.shouldHave(cssValue(key, value));

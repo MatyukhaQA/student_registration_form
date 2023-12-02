@@ -11,7 +11,7 @@ public class RegistrationFormTest extends TestBase{
     TestData testData = new TestData();
 
     @Test
-    @DisplayName("Проверка заполнения всех полей в форме")
+    @DisplayName("РџСЂРѕРІРµСЂРєР° Р·Р°РїРѕР»РЅРµРЅРёСЏ РІСЃРµС… РїРѕР»РµР№ РІ С„РѕСЂРјРµ")
     @Tag("Regress")
     void formTest() {
         registrationPage.openPage()
@@ -45,7 +45,7 @@ public class RegistrationFormTest extends TestBase{
     }
 
     @Test
-    @DisplayName("Проверка заполнения обязательных полей в форме")
+    @DisplayName("РџСЂРѕРІРµСЂРєР° Р·Р°РїРѕР»РЅРµРЅРёСЏ РѕР±СЏР·Р°С‚РµР»СЊРЅС‹С… РїРѕР»РµР№ РІ С„РѕСЂРјРµ")
     @Tag("Regress")
     void minimalFormFilling() {
        registrationPage.openPage()
@@ -64,7 +64,7 @@ public class RegistrationFormTest extends TestBase{
     }
 
     @Test
-    @DisplayName("Отправка пустой формы")
+    @DisplayName("РћС‚РїСЂР°РІРєР° РїСѓСЃС‚РѕР№ С„РѕСЂРјС‹")
     @Tag("Regress")
     void incorrectFormFilling() {
         registrationPage.openPage()
