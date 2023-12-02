@@ -36,3 +36,9 @@ test {
     useJUnitPlatform()
     systemProperties(System.getProperties())
 }
+
+task demoqa(type: Test) {
+    useJUnitPlatform {
+        includeTags("Regress")
+    }
+}
