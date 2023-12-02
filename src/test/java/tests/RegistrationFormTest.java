@@ -1,5 +1,6 @@
 package tests;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import tests.data.TestData;
 import tests.pages.RegistrationPage;
@@ -9,6 +10,7 @@ public class RegistrationFormTest extends TestBase{
     TestData testData = new TestData();
 
     @Test
+    @DisplayName("Проверка заполнения всех полей в форме")
     void formTest() {
         registrationPage.openPage()
                 .removeBanners()
@@ -41,6 +43,7 @@ public class RegistrationFormTest extends TestBase{
     }
 
     @Test
+    @DisplayName("Проверка заполнения обязательных полей в форме")
     void minimalFormFilling() {
        registrationPage.openPage()
                 .removeBanners()
@@ -58,6 +61,7 @@ public class RegistrationFormTest extends TestBase{
     }
 
     @Test
+    @DisplayName("Отправка пустой формы")
     void incorrectFormFilling() {
         registrationPage.openPage()
                 .removeBanners()
